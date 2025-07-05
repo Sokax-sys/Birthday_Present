@@ -39,13 +39,15 @@
     <div class="flex justify-center space-x-4 mb-6">
       <img src="https://img.icons8.com/color/96/000000/birthday-cake.png" class="w-20 h-20 animate-pulse drop-shadow-xl" alt="Cake">
     </div>
-    <p class="text-xl text-gray-700 mb-6 font-semibold">
-      <span class="block text-2xl text-pink-500 font-extrabold mb-2 animate-pulse">Happy Birthday, Mạnh! 🥳</span>
-      Chúc Mạnh có một ngày sinh nhật thật đặc biệt, luôn vui vẻ, hạnh phúc và thành công trên mọi chặng đường!<br>
-      Với tài năng Toán - Hóa - Sinh xuất sắc, chúc bạn sớm thực hiện được ước mơ trở thành bác sĩ giỏi, mang lại nhiều điều tốt đẹp cho mọi người.<br>
-      Hãy luôn giữ vững đam mê và tinh thần học tập nhé!<br>
-      <span class="block mt-2 text-green-500 font-bold animate-bounce">🧪📚 Chúc Mạnh luôn đạt điểm cao và thành công trên con đường Y khoa! 🩺✨</span>
-    </p>
+    <div id="wishesBox" class="hidden">
+      <p class="text-xl text-gray-700 mb-6 font-semibold">
+        <span class="block text-2xl text-pink-500 font-extrabold mb-2 animate-pulse">Happy Birthday, Mạnh! 🥳</span>
+        Chúc Mạnh có một ngày sinh nhật thật đặc biệt, luôn vui vẻ, hạnh phúc và thành công trên mọi chặng đường!<br>
+        Với tài năng Toán - Hóa - Sinh xuất sắc, chúc bạn sớm thực hiện được ước mơ trở thành bác sĩ giỏi, mang lại nhiều điều tốt đẹp cho mọi người.<br>
+        Hãy luôn giữ vững đam mê và tinh thần học tập nhé!<br>
+        <span class="block mt-2 text-green-500 font-bold animate-bounce">🧪📚 Chúc Mạnh luôn đạt điểm cao và thành công trên con đường Y khoa! 🩺✨</span>
+      </p>
+    </div>
     <div class="flex justify-center mb-6">
       <button id="surpriseBtn" class="bg-transparent px-8 py-4 rounded-full shadow-none text-xl font-bold transition-all duration-300 pulse flex items-center gap-2 focus:outline-none">
         <img src="https://img.icons8.com/color/96/000000/gift--v2.png" class="w-10 h-10 animate-bounce" alt="Gift">
@@ -84,16 +86,19 @@
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // Phát nhạc tự động
+    // Phát nhạc tự động ngay khi vào web
     const audio = document.getElementById('birthdaySong');
     window.addEventListener('DOMContentLoaded', () => {
-      audio.play().catch(() => {});
+      setTimeout(() => {
+        audio.play().catch(() => {});
+      }, 0);
     });
 
     // Nút bất ngờ
     document.getElementById('surpriseBtn').addEventListener('click', () => {
       document.getElementById('giftBox').classList.remove('hidden');
       document.getElementById('surpriseBtn').classList.add('hidden');
+      document.getElementById('wishesBox').classList.remove('hidden');
     });
 
     // Nút phát lại nhạc
