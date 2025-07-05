@@ -49,7 +49,8 @@
         <span class="block mt-2 text-green-500 font-bold animate-bounce">🧪📚 Chúc Mạnh luôn đạt điểm cao và thành công trên con đường Y khoa! 🩺✨</span>
       </p>
     </div>
-    <div class="flex justify-center mb-6">
+    <div id="surpriseArea" class="flex flex-col items-center mb-6">
+      <span id="mysteryText" class="block text-lg text-purple-600 font-semibold mb-2 animate-pulse">Hộp quà bí ẩn đang chờ bạn mở ra!</span>
       <button id="surpriseBtn" class="bg-transparent px-8 py-4 rounded-full shadow-none text-xl font-bold transition-all duration-300 pulse flex items-center gap-2 focus:outline-none">
         <img src="https://img.icons8.com/color/96/000000/gift--v2.png" class="w-10 h-10 animate-bounce" alt="Gift">
       </button>
@@ -67,7 +68,7 @@
       <span id="countdown" class="block text-2xl font-bold text-pink-600 mt-2"></span>
     </div>
     <audio id="birthdaySong" loop>
-      <source src="https://www.youtube.com/watch?v=5u4xTa3LR2U.mp3" type="audio/mpeg">
+      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
     </audio>
   </div>
 
@@ -100,6 +101,10 @@
       document.getElementById('giftBox').classList.remove('hidden');
       document.getElementById('surpriseBtn').classList.add('hidden');
       document.getElementById('wishesBox').classList.remove('hidden');
+      // Ẩn dòng chữ bí ẩn khi mở quà
+      document.getElementById('mysteryText').classList.add('hidden');
+      // Ẩn luôn cả vùng chứa nút và dòng chữ nếu muốn
+      // document.getElementById('surpriseArea').classList.add('hidden');
     });
 
     // Nút phát lại nhạc
