@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chúc Mừng Sinh Nhật Cô Hà!</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .animate-spin-slow {
+      animation: spin 6s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+  <style>
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
+    .balloon {
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-purple-900 to-gray-800 flex items-center justify-center min-h-screen p-4">
+  <div id="mainModal" class="bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full text-center transition-colors duration-500">
+    <h1 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-pink-500 to-red-500 mb-6 animate-bounce drop-shadow-lg">🎂 Happy Birthday Cô Hà! 🎉</h1>
+    <div class="flex justify-center space-x-4 mb-6">
+      <img src="https://img.icons8.com/color/96/000000/birthday-cake.png" class="w-20 h-20 animate-pulse drop-shadow-xl" alt="Cake">
+    </div>
+    <p class="text-xl text-gray-700 mb-6 font-semibold">
+      <span class="block text-2xl text-blue-500 font-extrabold mb-2 animate-pulse">Happy Birthday, Ms. Hà! 🥳</span>
+      Chúc cô Hà có một ngày sinh nhật thật ý nghĩa, luôn tràn ngập niềm vui, hạnh phúc và thành công trong sự nghiệp giảng dạy!<br>
+      Cảm ơn cô đã luôn tận tâm, truyền cảm hứng và động lực học tiếng Anh cho chúng em.<br>
+      Chúc cô mãi trẻ trung, xinh đẹp, nhiều sức khỏe và luôn giữ vững ngọn lửa đam mê với nghề giáo.<br>
+      <span class="block mt-2 text-pink-500 font-bold animate-bounce">📚🌟 Chúc cô gặt hái nhiều thành tựu và có thật nhiều học trò xuất sắc! 💐✨</span>
+    </p>
+    <div class="flex justify-center mb-6">
+      <button id="surpriseBtn" class="bg-transparent px-8 py-4 rounded-full shadow-none text-xl font-bold transition-all duration-300 pulse flex items-center gap-2 focus:outline-none">
+        <img src="https://img.icons8.com/color/96/000000/gift--v2.png" class="w-10 h-10 animate-bounce" alt="Gift">
+      </button>
+    </div>
+    <div id="giftBox" class="hidden flex flex-col items-center mb-6 animate__animated animate__fadeInUp">
+      <img src="https://img.icons8.com/?size=100&id=rO7u8GEYm5XE&format=png&color=000000" class="w-24 h-24 mb-2 animate-bounce" alt="English">
+      <p class="text-lg text-blue-600 font-bold">Cô Hà nhận được <span class="text-yellow-500">1 năm tràn đầy niềm vui</span>, <span class="text-pink-500">365 ngày hạnh phúc</span> và thật nhiều thành công, may mắn trong sự nghiệp dạy học! 📚💖</p>
+    </div>
+    <div class="flex justify-center mt-8 gap-4">
+      <button id="toggleTheme" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg shadow hover:bg-gray-300 transition-all duration-200">🌙 Chuyển chế độ tối/sáng</button>
+      <button id="replayMusic" class="bg-blue-200 text-blue-700 px-4 py-2 rounded-lg shadow hover:bg-blue-300 transition-all duration-200">🔊 Phát lại nhạc</button>
+    </div>  
+    <div class="mt-8 text-center">
+      <span class="block text-lg text-gray-500">Đếm ngược đến sinh nhật tiếp theo của cô Hà:</span>
+      <span id="countdown" class="block text-2xl font-bold text-blue-600 mt-2"></span>
+    </div>
+    <audio id="birthdaySong" loop>
+      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <script>
+    // Đếm ngược đến sinh nhật tiếp theo của cô Hà (ví dụ: 20/11)
+    function updateCountdown() {
+      const now = new Date();
+      let nextBD = new Date(now.getFullYear(), 10, 20, 0, 0, 0, 0); // 20/11
+      if (now > nextBD) nextBD = new Date(now.getFullYear() + 1, 10, 20, 0, 0, 0, 0);
+      const diff = nextBD - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((diff / (1000 * 60)) % 60);
+      const secs = Math.floor((diff / 1000) % 60);
+      document.getElementById('countdown').textContent = `${days} ngày ${hours} giờ ${mins} phút ${secs} giây`;
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // Phát nhạc tự động
+    const audio = document.getElementById('birthdaySong');
+    window.addEventListener('DOMContentLoaded', () => {
+      audio.play().catch(() => {});
+    });
+
+    // Nút bất ngờ
+    document.getElementById('surpriseBtn').addEventListener('click', () => {
+      document.getElementById('giftBox').classList.remove('hidden');
+      document.getElementById('surpriseBtn').classList.add('hidden');
+    });
+
+    // Nút phát lại nhạc
+    document.getElementById('replayMusic').addEventListener('click', () => {
+      audio.currentTime = 0;
+      audio.play();
+    });
+
+    // Chuyển chế độ tối/sáng nâng cấp
+    const toggleTheme = document.getElementById('toggleTheme');
+    let isDark = false;
+    const mainModal = document.getElementById('mainModal');
+    toggleTheme.addEventListener('click', () => {
+      isDark = !isDark;
+      if (isDark) {
+        document.body.classList.remove('bg-gradient-to-br', 'from-gray-900', 'via-purple-900', 'to-gray-800', 'text-white');
+        document.body.classList.add('bg-gradient-to-br', 'from-gray-800', 'via-gray-900', 'to-black', 'text-white');
+        mainModal.classList.remove('bg-white');
+        mainModal.classList.add('bg-gray-900');
+        mainModal.classList.add('text-white');
+        toggleTheme.innerHTML = '☀️ Chuyển chế độ tối/sáng';
+      } else {
+        document.body.classList.remove('bg-gradient-to-br', 'from-gray-800', 'via-gray-900', 'to-black', 'text-white');
+        document.body.classList.add('bg-gradient-to-br', 'from-gray-900', 'via-purple-900', 'to-gray-800', 'text-white');
+        mainModal.classList.remove('bg-gray-900');
+        mainModal.classList.remove('text-white');
+        mainModal.classList.add('bg-white');
+        toggleTheme.innerHTML = '🌙 Chuyển chế độ tối/sáng';
+      }
+    });
+  </script>
+</body>
+</html>
