@@ -38,7 +38,6 @@
     <h1 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-pink-500 to-green-500 mb-6 animate-bounce drop-shadow-lg">🎂 Happy Birthday Ms. Hà! 🎉</h1>
     <div class="flex justify-center space-x-4 mb-6">
       <img src="https://img.icons8.com/color/96/000000/birthday-cake.png" class="w-20 h-20 animate-pulse drop-shadow-xl" alt="Cake">
-      <img src="https://img.icons8.com/color/96/000000/teacher.png" class="w-20 h-20 animate-spin-slow drop-shadow-xl" alt="Teacher">
     </div>
     <!-- Lời chúc chỉ hiện khi bấm nút quà tặng -->
     <div id="wishesBox" class="hidden">
@@ -74,11 +73,11 @@
   </div>
 
   <script>
-    // Đếm ngược đến sinh nhật tiếp theo (ví dụ: 5/7)
+    // Đếm ngược đến sinh nhật tiếp theo của cô Hà (17/7)
     function updateCountdown() {
       const now = new Date();
-      let nextBD = new Date(now.getFullYear(), 6, 5, 0, 0, 0, 0); // 5/7
-      if (now > nextBD) nextBD = new Date(now.getFullYear() + 1, 6, 5, 0, 0, 0, 0);
+      let nextBD = new Date(now.getFullYear(), 6, 17, 0, 0, 0, 0); // 17/7
+      if (now > nextBD) nextBD = new Date(now.getFullYear() + 1, 6, 17, 0, 0, 0, 0);
       const diff = nextBD - now;
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
@@ -88,14 +87,6 @@
     }
     setInterval(updateCountdown, 1000);
     updateCountdown();
-
-    // Phát nhạc tự động ngay khi vào web
-    const audio = document.getElementById('birthdaySong');
-    window.addEventListener('DOMContentLoaded', () => {
-      setTimeout(() => {
-        audio.play().catch(() => {});
-      }, 0);
-    });
 
     // Nút bất ngờ
     document.getElementById('surpriseBtn').addEventListener('click', () => {
@@ -108,11 +99,14 @@
       // document.getElementById('surpriseArea').classList.add('hidden');
     });
 
-    // Nút phát lại nhạc
-    document.getElementById('replayMusic').addEventListener('click', () => {
-      audio.currentTime = 0;
-      audio.play();
-    });
+    // Nút phát lại nhạc (nếu muốn cá nhân hóa thành phát lại video, hãy thay đổi phần này)
+    // document.getElementById('replayMusic').addEventListener('click', () => {
+    //   const video = document.getElementById('birthdayVideo');
+    //   if (video) {
+    //     video.currentTime = 0;
+    //     video.play();
+    //   }
+    // });
 
     // Chuyển chế độ tối/sáng nâng cấp
     const toggleTheme = document.getElementById('toggleTheme');
