@@ -1,36 +1,9 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chọn File Chúc Mừng</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    // Tự động chuyển hướng sang Phamthithanhha.html nếu truy cập index.html
-    window.onload = function() {
-      if (!window.location.hash) {
-        window.location.href = 'Phamthithanhha.html';
-      }
-    }
-  </script>
-</head>
-<body class="bg-gradient-to-br from-blue-100 via-pink-100 to-yellow-100 min-h-screen flex items-center justify-center">
-  <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full text-center">
-    <h1 class="text-3xl font-bold text-pink-600 mb-6">Chọn File Chúc Mừng</h1>
-    <ul id="fileList" class="space-y-4"></ul>
-  </div>
-  <script>
-    // Danh sách file html (có thể mở rộng nếu có nhiều file)
-    const files = [
-      'Phamthithanhha',
-      'Mạnh'
-    ];
-    const ul = document.getElementById('fileList');
-    files.forEach(name => {
-      const li = document.createElement('li');
-      li.innerHTML = `<a href="${name}.html" class="block px-6 py-3 rounded-lg bg-gradient-to-r from-blue-200 via-pink-200 to-yellow-200 text-xl font-semibold text-gray-800 shadow hover:scale-105 hover:bg-yellow-100 transition-all duration-200 cursor-pointer">${name}</a>`;
-      ul.appendChild(li);
-    });
-  </script>
-</body>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="0; url=Phamthithanhha.html" />
+  </head>
+  <body>
+    <p>Đang chuyển hướng đến trang sinh nhật...</p>
+  </body>
 </html>
